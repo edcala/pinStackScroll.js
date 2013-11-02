@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Static stack scroll demo 1</title>
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="SitePoint" />
+
+  <link rel="stylesheet" href="css/styles.css?v=3.0" />
+  <link rel="stylesheet" href="css/pinStackScroll.css?v=3.0" />
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script>
+	var $j = jQuery.noConflict();
+  </script>
+  <script src="js/pinStackScroll.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<h1>pinStackScroll.js</h1>
+	<p>This plugin pins and stacks selected elements at the top of the screen as the elements are scrolled to the top of the viewport</p>
+	<ul id="usageList" class="stackElement">
+		<h2>Usage:</h2>
+		<li>Include pinStackScroll.js in the &lt;head&gt; section after including jQuery</li>
+		<li>Include pinStackScroll.css styling in the &lt;head&gt; section</li>
+		<li><p>Run this in the &lt;body&gt; after the document is loaded:</p>
+			<pre>
+&lt;script&gt;
+	$(document).ready(function(){
+		$(".stackElement").pinStackScroll();
+	});
+&lt;script&gt;
+			</pre>
+		</li>
+		<li>Done!</li>
+	</ul>
+	<ul class="stackElement">
+		<h2>Options:</h2>
+		<li><p>overlapStack: (true||false)</p>
+			<p>true - The static divs appear when the top of the original divs clips the top of the viewport.</p>
+			<p>false - (default) The static divs appear when the top of the original divs clips the bottom of an existing static div.</p>
+		</li>
+		<li><p>hideOriginals: (true||false)</p>
+			<p>true - Hide the original elements (make invisible) when a static element appears.</p>
+			<p>false - (default) Keep the originals visible when a rstatic element appears.</p>
+		</li>
+		<li><p>remainOnTop: (true||false)</p>
+			<p>true - Stacked elements remain on the viewport even when stacked elements have been scrolled to the top.</p>
+			<p>false - (default) Stacked elements will scroll out of the screen once the last element to be stacked clips the top of the viewport.</p>
+		</li>
+	</ul>
+	<div class="ignore"><p>This div should be ignored</p></div>
+	<div class="ignore"><p>...And this one too...</p></div>
+	<div class="ignore"><p>3rd div ignored</p></div>
+	<div class="stackElement"><p>And now more divs to stack...</p></div>
+	<div class="stackElement"><p>Ready...</p></div>
+	<div class="stackElement"><p>3</p></div>
+	<div class="stackElement"><p>2</p></div>
+	<div class="stackElement"><p>1</p></div>
+	<div class="stackElement"><p>Last element to stack</p></div>
+	<div class="ignore"><p>This div should be ignored</p></div>
+	<div class="ignore"><p>...And this one too...</p></div>
+	<div class="ignore"><p>Last div of the day</p></div>
+	<script>
+	
+	$j(document).ready(function(){
+		$j(".stackElement").pinStackScroll();
+	});
+	</script>
+</body>
+</html>
